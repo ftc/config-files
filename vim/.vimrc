@@ -2,40 +2,44 @@ set hlsearch
 set number
 syntax on
 
-call plug#begin('~/.vim/plugged')
-Plug 'leafgarland/typescript-vim'
+set backspace=indent,eol,start
+xnoremap <leader>s <esc>:'<,'>:w !st<CR>
+xnoremap <leader>x <esc>:'<,'>:w !pbcopy<CR>
+
+call plug#begin()
+Plug 'lervag/vimtex'
 call plug#end()
 
-au BufReadPost *.wppl set syntax=javascript
-" ## added by OPAM user-setup for vim / base ## 93ee63e278bdfc07d1139a748ed3fff2 ## you can edit, but keep this line
-let s:opam_share_dir = system("opam config var share")
-let s:opam_share_dir = substitute(s:opam_share_dir, '[\r\n]*$', '', '')
+let g:tex_flavor='latex' " Default tex file format
+let g:vimtex_view_method = 'skim' " Choose which program to use to view PDF file 
+let g:vimtex_view_skim_sync = 1 " Value 1 allows forward search after every successful compilation
+let g:vimtex_view_skim_activate = 1 " Value 1 allows change focus to skim after command `:VimtexView` is given
+" note may need \usepackage{pdfsync} to sync pdf, still not working
 
-let s:opam_configuration = {}
+if empty(v:servername) && exists('*remote_startserver')
+  call remote_startserver('VIM')
+endif
+set mouse=a
+" turn off auto indent entirely, TODO: figure out a better way to selectively
+" use auto indent.
+set indentexpr=
 
-function! OpamConfOcpIndent()
-  execute "set rtp^=" . s:opam_share_dir . "/ocp-indent/vim"
-endfunction
-let s:opam_configuration['ocp-indent'] = function('OpamConfOcpIndent')
 
-function! OpamConfOcpIndex()
-  execute "set rtp+=" . s:opam_share_dir . "/ocp-index/vim"
-endfunction
-let s:opam_configuration['ocp-index'] = function('OpamConfOcpIndex')
-
-function! OpamConfMerlin()
-  let l:dir = s:opam_share_dir . "/merlin/vim"
-  execute "set rtp+=" . l:dir
-endfunction
-let s:opam_configuration['merlin'] = function('OpamConfMerlin')
-
-let s:opam_packages = ["ocp-indent", "ocp-index", "merlin"]
-let s:opam_check_cmdline = ["opam list --installed --short --safe --color=never"] + s:opam_packages
-let s:opam_available_tools = split(system(join(s:opam_check_cmdline)))
-for tool in s:opam_packages
-  " Respect package order (merlin should be after ocp-index)
-  if count(s:opam_available_tools, tool) > 0
-    call s:opam_configuration[tool]()
-  endif
-endfor
-" ## end of OPAM user-setup addition for vim / base ## keep this line
+" function! s:Get_visual_selection()
+"   " Why is this not a built-in Vim script function?!
+"   let [lnum1, col1] = getpos("'<")[1:2]
+"   let [lnum2, col2] = getpos("'>")[1:2]
+"   let lines = getline(lnum1, lnum2)
+"   let lines[-1] = lines[-1][: col2 - (&selection == 'inclusive' ? 1 : 2)]
+"   let lines[0] = lines[0][col1 - 1:]
+"   return join(lines, "\n")
+" endfunction
+" 
+" fun! Say(var1)
+"   echo var1
+"   "!st var1
+" endfun
+" 
+" xnoremap <leader>v <esc>:'<,'>:echo Say(@*)<CR>
+" " vnoremap <F6> :call Say(@*)<CR>
+" 

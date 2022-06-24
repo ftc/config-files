@@ -1,0 +1,17 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "say",
+            "type": "shell",
+            "command":"st \"$(cat << 'HEREDOC' \n${selectedText}\nHEREDOC\n)\" ",
+            //"command": "st",
+            //"args": [
+            //    "${selectedText}"
+            //],
+            "problemMatcher": []
+        }
+    ]
+}
