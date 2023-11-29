@@ -1,0 +1,13 @@
+https://dev.to/adamlombard/macos-run-a-script-in-any-app-via-custom-hotkey-4n99
+
+Quick action -> utilities -> run shell script
+
+manually set path variable as this doesn't sourse .zshrc
+
+e.g.
+
+PATH="/Users/shawnmeier/.opam/default/bin:/Users/shawnmeier/.pyenv/shims:/Users/shawnmeier/Documents/source/config-files/bin:/Users/shawnmeier/google-cloud-sdk/bin:/Users/shawnmeier/.opam/4.07.0/bin:/Users/shawnmeier/.jenv/shims:/Users/shawnmeier/.jenv/bin:/Users/shawnmeier/Library/Android/sdk/platform-tools:/Users/shawnmeier/Library/Android/sdk/build-tools/29.0.2:/Users/shawnmeier/software/bin:/Users/shawnmeier/.opam/default/bin:/Users/shawnmeier/Documents/source/config-files/bin:/Users/shawnmeier/google-cloud-sdk/bin:/Users/shawnmeier/.opam/4.07.0/bin:/Users/shawnmeier/.jenv/shims:/Users/shawnmeier/.jenv/bin:/Users/shawnmeier/Library/Android/sdk/platform-tools:/Users/shawnmeier/Library/Android/sdk/build-tools/29.0.2:/Users/shawnmeier/software/bin:/Users/shawnmeier/.cargo/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/usr/local/share/dotnet:/opt/X11/bin:~/.dotnet/tools:/Library/Apple/usr/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Users/shawnmeier/.opam/default/bin:/Users/shawnmeier/Documents/source/config-files/bin:/Users/shawnmeier/google-cloud-sdk/bin:/Users/shawnmeier/.opam/4.07.0/bin:/Users/shawnmeier/.jenv/shims:/Users/shawnmeier/.jenv/bin:/Users/shawnmeier/Library/Android/sdk/platform-tools:/Users/shawnmeier/Library/Android/sdk/build-tools/29.0.2:/Users/shawnmeier/software/bin:/Users/shawnmeier/.cargo/bin:/Users/shawnmeier/software/spark-3.1.1-bin-hadoop2.7/bin:/Users/shawnmeier/software/nuXmv-2.0.0-Darwin/bin:/Users/shawnmeier/software/spark-3.1.1-bin-hadoop2.7/bin:/Users/shawnmeier/software/nuXmv-2.0.0-Darwin/bin:/Users/shawnmeier/software/spark-3.1.1-bin-hadoop2.7/bin:/Users/shawnmeier/software/nuXmv-2.0.0-Darwin/bin"
+
+/Users/shawnmeier/Documents/source/config-files/bin/sayimage.sh
+
+
