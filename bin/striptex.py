@@ -34,9 +34,9 @@ for refcmd in ['ref','autoref','figref','thmref']:
 for ignoreContentCmd in ['JEDI','begin','end','citet','cite', 'wfhistjudge']:
     output = replaceCmdIgnoreContents(ignoreContentCmd,'',output)
 
-for keepContentCmd in ['emph', 'codej']:
+for keepContentCmd in ['emph', 'codej', 'cfedge']:
     output = removeCmdLeaveContents(keepContentCmd, output)
 
 output = re.sub(r'\$','',output)
 output = re.sub(r'\%','',output)
-os.system("say \"%s\"" % output)
+os.system("say -r 250 \"%s\"" % output)
