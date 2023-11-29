@@ -3,6 +3,7 @@ set number
 syntax on
 
 set backspace=indent,eol,start
+" note: leader key is \
 xnoremap <leader>s <esc>:'<,'>:w !st<CR>
 xnoremap <leader>x <esc>:'<,'>:w !pbcopy<CR>
 
@@ -43,3 +44,4 @@ set indentexpr=
 " xnoremap <leader>v <esc>:'<,'>:echo Say(@*)<CR>
 " " vnoremap <F6> :call Say(@*)<CR>
 " 
+set expandtab
