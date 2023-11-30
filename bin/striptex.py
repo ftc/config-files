@@ -39,4 +39,4 @@ for keepContentCmd in ['emph', 'codej', 'cfedge']:
 
 output = re.sub(r'\$','',output)
 output = re.sub(r'\%','',output)
-os.system("say -r 250 \"%s\"" % output)
+os.system("say -r 225 \"%s\"" % output)

@@ -3,6 +3,16 @@ from PIL import ImageGrab, Image
 import pytesseract
 import os
 
+import subprocess
+import sys
+
+
+try:
+    subprocess.check_output(['screencapture', '-i', '-x', '-p', '-c'],
+                            shell=False)
+except subprocess.CalledProcessError as e:
+    print('Python error: [%d]\n{}\n'.format(e.returncode, e.output))
+
 
 img = ImageGrab.grabclipboard()
 print(img)
